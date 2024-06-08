@@ -5,12 +5,12 @@ blocks:
     file_source:
       path: unit_1_data_preparation/data_loaders/ingest.py
   downstream_blocks:
-  - ingest_time_series_bar_chart_y5
   - missing_values_for_ingest
   - unique_values_for_ingest
   - most_frequent_values_for_ingest
   - summary_overview_for_ingest
   - feature_profiles_for_ingest
+  - ingest_time_series_bar_chart_s4
   executor_config: null
   executor_type: local_python
   has_callback: false
@@ -47,29 +47,6 @@ type: python
 uuid: data_preparation
 variables_dir: /home/src/mage_data/unit_1_data_preparation
 widgets:
-- all_upstream_blocks_executed: true
-  color: null
-  configuration:
-    chart_type: time series bar chart
-    group_by:
-    - lpep_pickup_datetime
-    metrics:
-    - aggregation: count
-      column: lpep_pickup_datetime
-    time_interval: week
-  downstream_blocks: []
-  executor_config: null
-  executor_type: local_python
-  has_callback: false
-  language: python
-  name: ingest_time series bar chart_y5
-  retry_config: null
-  status: executed
-  timeout: null
-  type: chart
-  upstream_blocks:
-  - ingest
-  uuid: ingest_time_series_bar_chart_y5
 - all_upstream_blocks_executed: true
   color: null
   configuration:
@@ -175,3 +152,26 @@ widgets:
   upstream_blocks:
   - ingest
   uuid: feature_profiles_for_ingest
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    chart_type: time series bar chart
+    group_by:
+    - lpep_pickup_datetime_cleaned
+    metrics:
+    - aggregation: count
+      column: lpep_pickup_datetime_cleaned
+    time_interval: original
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: ingest_time series bar chart_s4
+  retry_config: null
+  status: executed
+  timeout: null
+  type: chart
+  upstream_blocks:
+  - ingest
+  uuid: ingest_time_series_bar_chart_s4
