@@ -79,7 +79,7 @@ widgets:
   language: python
   name: summary overview for ingest
   retry_config: null
-  status: executed
+  status: failed
   timeout: null
   type: chart
   upstream_blocks:
