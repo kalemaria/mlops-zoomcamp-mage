@@ -17,8 +17,7 @@ def transform(
 ) -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     split_on_feature = kwargs.get('split_on_feature')
     split_on_feature_value = kwargs.get('split_on_feature_value')
-    target = kwargs.get('col = 'trip_distance'
-x = df_1[df_1[col] <= 20][col]')
+    target = kwargs.get('target')
 
     df = clean(df)
     df = combine_features(df)
