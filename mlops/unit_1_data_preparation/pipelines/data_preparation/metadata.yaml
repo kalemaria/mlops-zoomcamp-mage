@@ -30,18 +30,37 @@ blocks:
       path: unit_1_data_preparation/transformers/prepare.py
   downstream_blocks:
   - prepare_histogram_t0
+  - build_block
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
   name: Prepare
   retry_config: null
-  status: updated
+  status: executed
   timeout: null
   type: transformer
   upstream_blocks:
   - ingest
   uuid: prepare
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: unit_1_data_preparation/data_exporters/build_block.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: Build_block
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - prepare
+  uuid: build_block
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}
@@ -86,7 +105,7 @@ widgets:
   language: python
   name: missing values for ingest
   retry_config: null
-  status: executed
+  status: failed
   timeout: null
   type: chart
   upstream_blocks:
@@ -199,7 +218,7 @@ widgets:
   upstream_blocks:
   - ingest
   uuid: ingest_time_series_bar_chart_s4
-- all_upstream_blocks_executed: false
+- all_upstream_blocks_executed: true
   color: null
   configuration:
     buckets: '20'
@@ -212,7 +231,7 @@ widgets:
   language: python
   name: prepare_histogram_t0
   retry_config: null
-  status: executed
+  status: failed
   timeout: null
   type: chart
   upstream_blocks:
