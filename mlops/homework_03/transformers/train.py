@@ -22,7 +22,6 @@ def train(df, *args, **kwargs):
     """
     # Specify your transformation logic here
     categorical = ['PULocationID', 'DOLocationID']
-    df[categorical] = df[categorical].astype(str)
 
     train_dics = df[categorical].to_dict(orient='records')
 
